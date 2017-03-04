@@ -1,0 +1,5 @@
+python-rake
+numpy
+pyyaml
+nltk
+flask
