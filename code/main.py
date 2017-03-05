@@ -28,7 +28,7 @@ def newvisitor():
     visitors = db().query("SELECT visits FROM stats")[0][0]
     socketio.emit('visitor_update',
             {'data': visitors})
-    print visitors
+    print (visitors)
     return
 
 def newprint():
