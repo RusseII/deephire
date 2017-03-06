@@ -104,3 +104,4 @@ tags
 
 # sass
 .sass-cache/
+*.map

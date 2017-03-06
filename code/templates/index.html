@@ -3,11 +3,22 @@
 <head>
 	<title>DeepHire Demo</title>
 	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.min.js"></script>
 </head>
 <body>
 	<h1>DeepHire</h1>
-	<div class="chat-container">
+	<div id="chat-container">
+		<div id="ai-chat-container">
 
+		</div>
+		<div id="human-chat-container">
+
+		</div>
 	</div>
+	<div id="bottom-section">
+		<input type="textarea" placeholder="Message" id="human-textbox">
+		<input type="button" id="submit-button" onclick="sendMessage()" value="Send">
+	</div>
+	<script src="static/js/main.js"></script>
 </body>
 </html>
