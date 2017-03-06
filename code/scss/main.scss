@@ -17,7 +17,15 @@ html, body {
 	font-family: 'Avenir', sans-serif;
 }
 
+body {
+	height: 100vh;
+	overflow: hidden;
+}
+
 h1 {
+	position: absolute;
+	top: 0;
+	left: 0;
 	margin: 25px 35px;
 	text-align: left;
 	width: auto;
@@ -26,10 +34,13 @@ h1 {
 
 #chat-container {
 	width: 100%;
-
-	border: 1px solid $grey;
+	max-width: 1040px;
+	//border: 1px solid $grey;
 	border-radius: 5px;
 	margin: 0 auto;
+	margin-top: 100px;
+	max-height: 80vh;
+	overflow-y: scroll;
 }
 
 #human-textbox {
@@ -42,7 +53,9 @@ h1 {
 	outline: none;
 	display: inline-block;
 
-	width: calc(100% - 150px);
+	width: calc(100% - 140px);
+
+	transition: border 0.5s ease;
 
 	&:focus {
 		border: 2px solid $white;
@@ -58,13 +71,23 @@ h1 {
 	color: $white;
 	padding: 10px 15px;
 	cursor: pointer;
+	margin: 0 0 0 auto;
+	outline: none;
+
+	transition: border 0.5s ease;
+
+	&:focus, &:hover {
+		border: 2px solid $white;
+	}
 }
 
 #bottom-section {
 	position: absolute;
-	left: 30px;
+	left: 50%;
+	transform: translateX(-50%);
 	bottom: 30px;
 	width: calc(100% - 60px);
+	max-width: 1040px;
 }
 
 .chat-bubble {
@@ -80,8 +103,10 @@ h1 {
 
 .human-chat-bubble {
 	border-color: $white;
+	margin: 0 30px 10px auto;
 }
 
 .ai-chat-bubble {
 	border-color: $green;
+	margin: 0 auto 10px 30px;
 }

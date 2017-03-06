@@ -8,7 +8,14 @@ html, body {
   background-color: #181c23;
   font-family: 'Avenir', sans-serif; }
 
+body {
+  height: 100vh;
+  overflow: hidden; }
+
 h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
   margin: 25px 35px;
   text-align: left;
   width: auto;
@@ -16,9 +23,12 @@ h1 {
 
 #chat-container {
   width: 100%;
-  border: 1px solid #a7a9ac;
+  max-width: 1040px;
   border-radius: 5px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  margin-top: 100px;
+  max-height: 80vh;
+  overflow-y: scroll; }
 
 #human-textbox {
   font-size: 16px;
@@ -29,7 +39,8 @@ h1 {
   padding: 10px 15px;
   outline: none;
   display: inline-block;
-  width: calc(100% - 150px); }
+  width: calc(100% - 140px);
+  transition: border 0.5s ease; }
   #human-textbox:focus {
     border: 2px solid #FFFFFF; }
 
@@ -41,13 +52,20 @@ h1 {
   border-radius: 5px;
   color: #FFFFFF;
   padding: 10px 15px;
-  cursor: pointer; }
+  cursor: pointer;
+  margin: 0 0 0 auto;
+  outline: none;
+  transition: border 0.5s ease; }
+  #submit-button:focus, #submit-button:hover {
+    border: 2px solid #FFFFFF; }
 
 #bottom-section {
   position: absolute;
-  left: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 30px;
-  width: calc(100% - 60px); }
+  width: calc(100% - 60px);
+  max-width: 1040px; }
 
 .chat-bubble {
   font-size: 16px;
@@ -59,9 +77,11 @@ h1 {
   max-width: 300px; }
 
 .human-chat-bubble {
-  border-color: #FFFFFF; }
+  border-color: #FFFFFF;
+  margin: 0 30px 10px auto; }
 
 .ai-chat-bubble {
-  border-color: #3fb461; }
+  border-color: #3fb461;
+  margin: 0 auto 10px 30px; }
 
 /*# sourceMappingURL=main.css.map */
