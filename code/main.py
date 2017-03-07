@@ -41,6 +41,9 @@ def newprint():
     socketio.emit('print_job_update',
             {'data': prints})
     return
-
+@socketio.on('loaded')
+def start(): 
+    socketio.emit("message_recieved", chat("start"))
+    
 if __name__ == "__main__":
     socketio.run(app, host='0.0.0.0') 

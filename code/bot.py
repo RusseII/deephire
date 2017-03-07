@@ -25,9 +25,8 @@ except ImportError:
 
 CLIENT_ACCESS_TOKEN = 'c066ae29c94d42ac87e84edfec16e046'
 
-
+ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
 def chat(msg):
-    ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
 
     user_message = msg
 
@@ -44,6 +43,8 @@ def chat(msg):
     actionIncomplete = result.get('actionIncomplete', False)
 
     return response['result']['fulfillment']['speech']
+
+
 
 
 if __name__ == '__main__':
