@@ -6,11 +6,9 @@ from werkzeug.utils import secure_filename
 from flask_socketio import SocketIO, send, emit, join_room, leave_room, \
             Namespace
 
-UPLOAD_FOLDER = 'upload_folder/'
 async_mode = None
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
@@ -45,4 +43,4 @@ def newprint():
     return
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True) 
+    socketio.run(app, host='0.0.0.0') 
