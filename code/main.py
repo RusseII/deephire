@@ -18,32 +18,17 @@ thread = None
 def upload_file():
     return render_template("index.html", async_mode=socketio.async_mode)
 
-#@socketio.on('loaded')
-#def page_load():
-#    newvisitor()
-#    newprint()
-#
-
+    
 @socketio.on('message_sent')
 def get_message(msg):
-    socketio.emit("message_recieved", chat(msg))
-    
-	 
-def newvisitor():
-    visitors = db().query("SELECT visits FROM stats")[0][0]
-    socketio.emit('visitor_update',
-            {'data': visitors})
-    print (visitors)
+    print request
+    socketio.emit("message_recieved", chat(msg), room=request.sid )
     return
 
-def newprint():
-    prints = db().query("SELECT print_jobs FROM stats")[0][0]
-    socketio.emit('print_job_update',
-            {'data': prints})
-    return
 @socketio.on('loaded')
 def start(): 
-    socketio.emit("message_recieved", chat("start"))
+    socketio.emit("message_recieved", chat("start"), room=request.sid)
+    return
     
 if __name__ == "__main__":
     socketio.run(app, host='0.0.0.0') 

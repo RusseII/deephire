@@ -1,8 +1,9 @@
-namespace = '';
+namespace = "";
 // Connect to the Socket.IO server.
 // The connection URL has the following format:
 //     http[s]://<domain>:<port>[/<namespace>]
 var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+console.log(socket);
 // Event handler for new connections.
 // The callback function is invoked when a connection with the
 // server is established.
@@ -53,9 +54,11 @@ function populateHumanMessage(msg) {
     document.getElementById("chat-container").appendChild(element);//.appendChild("<div class='chat-bubble ai-chat-bubble'>"+ msg +"</div>")
 }
 
+
 socket.on('message_recieved', function(msg) {
   populateAIMessage(msg);
 });
+
 
 socket.on('connect', function() {
   socket.emit('loaded');
