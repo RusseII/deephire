@@ -1,5 +1,6 @@
 import os
 from bot import chat 
+from db import db
 import subprocess
 from flask import Flask,flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
@@ -21,7 +22,8 @@ def upload_file():
     
 @socketio.on('message_sent')
 def get_message(msg):
-    print request
+    db().query("INSERT INTO Messages VALUES (?)", (msg,))
+    print msg
     socketio.emit("message_recieved", chat(msg), room=request.sid )
     return
 
